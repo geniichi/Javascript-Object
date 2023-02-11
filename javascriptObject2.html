@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer>
+        class Arithmetic {
+        constructor(num1, num2) {
+          this.num1 = num1;
+          this.num2 = num2;
+        }
+        multiply() {
+          return this.num1 * this.num2;
+        }
+        divide() {
+          return this.num1 / this.num2;
+        }
+        subtract() {
+          return this.num1 - this.num2;
+        }
+        add() {
+          return this.num1 + this.num2;
+        }
+    }
+
+    function solve() {
+        const num1 = parseInt(document.getElementById("num1").value);
+        const num2 = parseInt(document.getElementById("num2").value);
+        const arithmetic = new Arithmetic(num1, num2);
+
+        document.getElementById("product").innerHTML = "Multiplication: " + arithmetic.multiply();
+        document.getElementById("quotient").innerHTML = "Division: " + arithmetic.divide();
+        document.getElementById("difference").innerHTML = "Subtraction: " + arithmetic.subtract();
+        document.getElementById("sum").innerHTML = "Addition: " + arithmetic.add();
+    };
+
+    </script>
+    <style>
+        * {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+        body {background-color:rgba(113, 143, 188, 0.551);}
+        #input {display:flex;flex-direction:column;justify-content:space-evenly;align-items: center;background-color:rgb(57, 114, 199);width:400px;
+            margin:50px auto;height:300px;box-shadow: rgb(9, 64, 146) 5px 5px;}
+        #input div {margin:15px;}
+        input {width:250px;height:30px;}
+        button {border-radius:16px;padding:5px 20px;background-color: rgb(88, 135, 206);border:solid 0.5px #000;box-shadow: 2px 2px;}
+        #output {display:flex;flex-direction:column;justify-content:space-evenly;align-items: center;background-color:rgb(57, 114, 199);width:400px;
+            margin:50px auto;height:300px;box-shadow: rgb(9, 64, 146) 5px 5px;}
+        #output div {background-color: aliceblue;width:350px;height:45px;display:flex;flex-direction:column;justify-content:space-evenly;
+            align-items: center;border:2px solid #000;border-radius:5px;}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="input">
+        <div>
+            <label for="num1">First Number</label><br>
+            <input type="number" id="num1" name="num1" placeholder="Input first number">
+        </div>
+        <div>
+            <label for="num2">Second Number</label><br>
+            <input type="number" id="num2" name="num2" placeholder="Input second number">
+        </div>
+        <button onclick="solve()" id="calculate">Solve</button>
+    </div>
+    <div id="output">
+        <div id="product"></div><br>
+        <div id="quotient"></div><br>
+        <div id="difference"></div><br>
+        <div id="sum"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+        #info{background-color: rgb(49, 142, 201);width:400px;padding:25px;border-radius:16px;margin:100px auto;box-shadow: rgb(19, 108, 143) 15px 15px;}
+        h1 {margin-top:5px;color:white;}
+        .bold {font-weight:bold;}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="info">
+        <h1>Student Information</h1>
+        <div id="student-info"></div>
+    </div>
+</body>
+<script>
+    class Student {
+        constructor(FirstName, LastName, Address, Age, Email) {
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Address = Address;
+        this.Age = Age;
+        this.Email = Email;
+        }
+    }
+
+    Student.prototype.Nationality = "Ireland";
+    Student.prototype.Language = "Irish";
+    Student.prototype.civilStatus = "Not Married";
+
+    const student = new Student("Mary", "Smith", "BURKHARDT RD. EVANSVILLE.", 29, "mary123@yahoo.com");
+
+    let studentInfo = `
+        <p><span class="bold">First Name:</span> ${student.FirstName}</p>
+        <p><span class="bold">Last Name:</span> ${student.LastName}</p>
+        <p><span class="bold">Address:</span> ${student.Address}</p>
+        <p><span class="bold">Age:</span> ${student.Age}</p>
+        <p><span class="bold">Email:</span> ${student.Email}</p>
+        <p><span class="bold">Nationality:</span> ${student.Nationality}</p>
+        <p><span class="bold">Language:</span> ${student.Language}</p>
+        <p><span class="bold">Civil Status:</span> ${student.civilStatus}</p>
+    `;
+
+    document.getElementById("student-info").innerHTML = studentInfo;
+</script>
+</html>

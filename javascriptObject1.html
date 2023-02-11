@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+        h1 {text-align: center;}
+        #separator {display:flex;justify-content:center;}
+        #separator section:nth-child(1) {margin:auto 50px auto 185px;}
+        form {display:flex;justify-content: center;align-items: center;flex-direction: column;background-color:rgb(74, 121, 214);width:500px;
+            margin: 0 auto;padding:15px;border-radius:16px;box-shadow:rgb(20, 74, 161) 5px 5px}
+        label {text-align: left;}
+        input[type=text] {width:380px;height:30px;padding:5px;margin: 5px auto;}
+        input[type=submit] {width:150px;height:30px;padding:5;background-color: rgb(35, 149, 226);border-radius:16px;border:none;
+            transition: all 0.5s}
+        input[type=submit]:hover {box-shadow:2px 5px}
+        #separator section:nth-child(2) {background-color:rgb(74, 121, 214);width:500px;margin: 0 auto;padding:15px;border-radius:16px;
+            box-shadow:rgb(20, 74, 161) 5px 5px;margin-left:50px;width:500px;}
+        table {border:solid 1px #000;}
+        th {width:100px;font-size:13px;text-align:center;}
+        td {width:100px;font-size:13px;text-align:center;}
+    </style>
+    <script defer>
+        const Form = document.forms[0];
+        const Car = {
+            Name,
+            yearModel,
+            engineType,
+            manufacturer,
+            brand,
+            countryOrigin
+        };
+
+        Form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementsByTagName('input').value = " ";
+        });
+
+        function carSubmit() {
+            Car.Name = Form.elements.Name.value,
+            Car.yearModel = Form.elements.yearModel.value,
+            Car.engineType = Form.elements.engineType.value,
+            Car.manufacturer = Form.elements.manufacturer.value,
+            Car.brand = Form.elements.brand.value,
+            Car.countryOrigin = Form.elements.countryOrigin.value
+            console.log(Car);
+            const table = document.getElementById("output");
+            const row = table.insertRow();
+            const cell1 = row.insertCell();
+            const cell2 = row.insertCell();
+            const cell3 = row.insertCell();
+            const cell4 = row.insertCell();
+            const cell5 = row.insertCell();
+            const cell6 = row.insertCell();
+            cell1.innerHTML = Car.Name;
+            cell2.innerHTML = Car.yearModel;
+            cell3.innerHTML = Car.engineType;
+            cell4.innerHTML = Car.manufacturer;
+            cell5.innerHTML = Car.brand;
+            cell6.innerHTML = Car.countryOrigin;
+        };
+
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <!--Without constructors-->
+    <h1>Car Details</h1>
+    <div id="separator">
+        <section>
+            <form>
+                <div>
+                    <label for="name">Name</label><br>
+                    <input type="text" id="Name" name="Name" placeholder="Enter car name"/>
+                </div>
+                <div>
+                    <label for="yearModel">Year Model</label><br>
+                    <input type="text" id="yearModel" name="yearModel" placeholder="Enter car year model"/>
+                </div>
+                <div>
+                    <label for="enginrType">Engine Type</label><br>
+                    <input type="text" id="engineType" name="engineType" placeholder="Enter car engine type"/>
+                </div>
+                <div>
+                    <label for="manufacturer">Manufacturer</label><br>
+                    <input type="text" id="manufacturer" name="manufacturer" placeholder="Enter car manufacturer"/>
+                </div>
+                <div>
+                    <label for="brand">Brand</label><br>
+                    <input type="text" id="brand" name="brand" placeholder="Enter car brand"/>
+                </div>
+                <div>
+                    <label for="contryOrigin">Country Origin</label><br>
+                    <input type="text" id="countryOrigin" name="countryOrigin" placeholder="Enter car country origin"/>
+                </div>
+                <br>
+                <input type="submit" name="submit" onclick="carSubmit()"/>
+            </form>
+        </section>
+        <section>
+            <table id="output">
+                <tr>
+                    <th>Name</th>
+                    <th>Year Model</th>
+                    <th>Engine Type</th>
+                    <th>Manufacturer</th>
+                    <th>Brand</th>
+                    <th>Country Origin</th>
+                </tr>
+            </table>
+        </section>
+    </div>
+
+</body>
+</html>
